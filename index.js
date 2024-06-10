@@ -37,6 +37,7 @@ function add_text(bit, x, y) {
     new_div.style.position = "absolute";
     new_div.style.left = (x - 2.5) + "px";
     new_div.style.top = (y - 7.5) + "px";
+    new_div.style.visibility = "hidden";
     return new_div;
 }
 
@@ -64,12 +65,17 @@ image.onload = function() {
             texts.push(new_div);
         }
     }
-};
 
-// Make texts flicker indefinitely
-window.setInterval(function() {
-    for (let i = 0; i < texts.length / 2; i++) {
-        const idx = Math.floor(Math.random() * texts.length);
-        flicker_text(texts[idx]);
-    }
-}, 1);
+    // Pause for two seconds, then begin flickering
+    setTimeout(() => {
+        // Make texts flicker indefinitely
+        let denom = 1000;
+        window.setInterval(function() {
+            for (let i = 0; i < texts.length / denom; i++) {
+                const idx = Math.floor(Math.random() * texts.length);
+                flicker_text(texts[idx]);
+                if (denom > 2) denom -= 0.0001;
+            }
+        }, 1);
+    }, 2000);
+};
