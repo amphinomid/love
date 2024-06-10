@@ -21,15 +21,12 @@ function xor(a, b) {
 }
 
 function flicker_text(text_div) {
-    num_flickers = Math.random() * 3 + 1;
-    for (let i = 0; i < num_flickers; i++) {
-        setTimeout(() => {
-            text_div.style.visibility = "hidden";
-        }, Math.random() * 50);
-        setTimeout(() => {
-            text_div.style.visibility = "visible";
-        }, Math.random() * 50);
-    }
+    setTimeout(() => {
+        text_div.style.visibility = "hidden";
+    }, Math.random() * 50);
+    setTimeout(() => {
+        text_div.style.visibility = "visible";
+    }, Math.random() * 50);
 }
 
 function add_text(bit, x, y) {
@@ -63,21 +60,17 @@ image.onload = function() {
     // Create texts
     if (debug) console.log("creating texts");
     for (let i = 0; i < canvas.width; i += 5) {
-        let texts_row = [];
         for (let j = 0; j < canvas.height; j += 5) {
             let new_div = add_text(pixels[i][j], i, j);
-            texts_row.push(new_div);
+            texts.push(new_div);
         }
-        texts.push(texts_row);
     }
 };
 
 // Make texts flicker indefinitely
 window.setInterval(function() {
-    for (let i = 0; i < texts.length; i++) {
-        for (let j = 0; j < texts[i].length; j++) {
-            if (Math.random() > 0.5) continue;
-            flicker_text(texts[i][j]);
-        }
+    for (let i = 0; i < texts.length / 2; i++) {
+        const idx = Math.floor(Math.random() * texts.length);
+        flicker_text(texts[idx]);
     }
-}, 1000);
+}, 1);
