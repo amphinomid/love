@@ -11,7 +11,6 @@ const ctx = canvas.getContext("2d");
 let image = new Image();
 image.crossOrigin = "anonymous";
 image.src = "https://amphinomid.github.io/love/happy_together.jpg";
-// image.alt = "Two men dance together in a kitchen."; // TODO: find another way
 let pixels = [];
 let texts = [];
 let debug = true;
@@ -37,7 +36,7 @@ function add_text(bit, x, y) {
     parent_div.appendChild(new_div);
     new_div.style.position = "absolute";
     new_div.style.left = (x - 2.5) + "px";
-    new_div.style.top = (y - 2.5) + "px";
+    new_div.style.top = (y - 7.5) + "px";
     return new_div;
 }
 
