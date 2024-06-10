@@ -20,6 +20,18 @@ function xor(a, b) {
     return (a + b) % 2;
 }
 
+function flicker_text(text_div) {
+    num_flickers = Math.random() * 3 + 1;
+    for (let i = 0; i < num_flickers; i++) {
+        setTimeout(() => {
+            text_div.style.visibility = "hidden";
+        }, Math.random() * 50);
+        setTimeout(() => {
+            text_div.style.visibility = "visible";
+        }, Math.random() * 50);
+    }
+}
+
 function add_text(bit, x, y) {
     const new_div = document.createElement("div");
     const new_text = document.createTextNode(bit);
@@ -27,8 +39,8 @@ function add_text(bit, x, y) {
     const parent_div = document.getElementById("parent");
     parent_div.appendChild(new_div);
     new_div.style.position = "absolute";
-    new_div.style.left = x + "px";
-    new_div.style.top = y + "px";
+    new_div.style.left = (x - 2.5) + "px";
+    new_div.style.top = (y - 2.5) + "px";
     return new_div;
 }
 
@@ -59,3 +71,13 @@ image.onload = function() {
         texts.push(texts_row);
     }
 };
+
+// Make texts flicker indefinitely
+window.setInterval(function() {
+    for (let i = 0; i < texts.length; i++) {
+        for (let j = 0; j < texts[i].length; j++) {
+            if (Math.random() > 0.5) continue;
+            flicker_text(texts[i][j]);
+        }
+    }
+}, 1000);
