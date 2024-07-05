@@ -1,0 +1,29 @@
+<div id="p"><p id="c1"></p><p id="c2"></p><p><br><br></p><p id="c3"></p><p id="c4"></p><p><br><br></p><p><br><br></p><p><br><br></p><p><br><br></p></div>
+<style>
+body { font-family: monospace; font-size: 1.5em; }
+#p { height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+#c1, #c2, #c3, #c4 { width: 100vw; text-align: center; }
+</style>
+<script>
+function xor(a, b) { let res = (a.charCodeAt() + b) % 2; return res.toString(); }
+function set_texts(c1, c2_1, c2_2, c3, c4) { document.getElementById("c1").innerHTML = "<i>" + c1 + "</i>"; document.getElementById("c2").innerHTML = "<i>" + c2_1 + "</i>" + c2_2; document.getElementById("c3").innerHTML = c3; document.getElementById("c4").innerHTML = c4; }
+window.onload = function() {
+let c1 = "\"...it confirms the fact that humiliation is the central danger of one's life\"";
+let c2_1 = "Baldwin, \"Freaks and the American Ideal of Manhood,\" published in 1985 in ";
+let c2_2 = "Playboy";
+let c3 = "When we know we're being watched and say we \"have nothing to hide\"";
+let c4 = "we confirm our fear of our humiliation over our belief in our freedom";
+set_texts(c1, c2_1, c2_2, c3, c4);
+setTimeout(() => {
+let prop = 1.0;
+window.setInterval(function() {
+let c1_mod = ""; let c2_1_mod = ""; let c2_2_mod = ""; let c3_mod = ""; let c4_mod = "";
+for (let i = 0; i < c1.length; i++) { if (Math.random() > prop) c1_mod += xor(c1[i], i); else c1_mod += c1[i]; }
+for (let i = 0; i < c2_1.length; i++) { if (Math.random() > prop) c2_1_mod += xor(c2_1[i], i); else c2_1_mod += c2_1[i]; }
+for (let i = 0; i < c2_2.length; i++) { if (Math.random() > prop) c2_2_mod += xor(c2_2[i], i); else c2_2_mod += c2_2[i]; }
+for (let i = 0; i < c3.length; i++) { if (Math.random() > prop) c3_mod += xor(c3[i], i); else c3_mod += c3[i]; }
+for (let i = 0; i < c4.length; i++) { if (Math.random() > prop) c4_mod += xor(c4[i], i); else c4_mod += c4[i]; }
+set_texts(c1_mod, c2_1_mod, c2_2_mod, c3_mod, c4_mod);
+if (prop > 0.9) prop -= 0.001; }, 500); }, 2000);
+};
+</script>

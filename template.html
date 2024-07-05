@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Title (Taper #13)</title>
+
+<!-- “Nothing to hide” Copyright (C) 2024 Anne Li
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright 
+notice and this notice are preserved. This file is offered as-is,
+without any warranty.
+
+This is from Taper #13: Superstitions, Fall 2024:
+
+https://taper.badquar.to/13/nothing_to_hide.html
+
+Although "love" does not appear in this piece, it really is about love, and
+how privacy is essential to love. (I had the luxury of indulging in James Baldwin
+in a quarter-long English class dedicated to the writer, and this idea seemed
+to surface again and again. Maybe it's because, as we drew from a number of his
+works, to love somebody is to see somebody — demanding the presence of something
+the lover can see that others cannot. For example, in _Giovanni's Room_, which
+Baldwin calls a novel about "what happens to you if you're afraid to love anybody"
+in a 1984 Village Voice interview, Giovanni sees David with a clarity David is
+unable to reciprocate. He sees that David will leave; that David cannot really go
+home; that David is afraid to love him; that David does not really love Hella
+either.)
+
+But the present is shaped by a continual diminishing of privacy. Communication
+is now laid bare and ossified in digital channels at least part of the time.
+Moves to digitize love itself (especially romantic love, through inventions like
+dating apps) reduce love from a liberating social responsibility to a highly
+choreographed and hypervisible performance defined by rules (e.g., rules about
+when it is acceptable to tell somebody you love them, as if this should not be
+said as soon as it is true). Moreover, we are subject not just to the collection
+of private data but also to its aggregation and evaluation: i.e., attempts to
+visibilize us, often beyond what we have consented to. This reality seems
+antithetical to ones Baldwin may have envisioned as he repeated expressed the
+importance of privacy to love.
+
+Baldwin's full quote from "Freaks and the American Ideal of Manhood," the essay
+referenced in the piece, is as follows: "It is virtually impossible to trust one's
+human value without the collaboration or corroboration of that eye — which is to
+say that no one can live without it. One can, of course, instruct that eye as to
+what to see, but this effort, which is nothing less than ruthless intimidation, is
+wounding and exhausting: While it can keep humiliation at bay, it confirms the fact
+that humiliation is the central danger of one's life. And since one cannot risk love
+without risking humiliation, love becomes impossible." This eye includes entities
+which surveil. We behave differently when we know we are being watched, and when we
+say we "have nothing to hide," we make humiliation the "central danger" and make
+love difficult. (Baldwin makes even more direct a statement in the Village Voice
+interview, holding close his experiences with love and sexuality, making clear they
+are intensely private matters.)
+
+There are four lines of text, each with 13 words. The first line is a quote from
+Baldwin's essay. The second is a citation. The third and fourth are responses I
+wrote in the English class I mentioned earlier, that the way we think about privacy
+(and our growing lack of it) may sound defiant but really reflects a deep-seated
+fear, and furthermore threatens our freedom by convincing us this fear is more
+important. Each character's bit was computed by xor'ing it with its index in the
+string (xor because of its prominence in cryptographic work). Representing the
+digitization and surveillance of love, they flicker on and off, both erasing and
+obscuring. It's a negative omen (a warning of how digital surveillance threatens
+love) as well as a positive one (a declaration that there remain deep personal
+truths such surveillance cannot capture — as we find ways to practice love that are
+as present, private and offline as possible, as we find ways to protect ourselves
+and our loved ones fiercely). It's luck, both good and bad.
+
+-->
+
+<style>
+	body { margin:0 ; overflow:hidden }
+	a { color:#eee ; text-decoration:none }
+	header { margin:0 ; padding:0 ; background-color:#444 ; color:#bbb ;
+		position:relative ; z-index:1000 }
+	header > h1 { margin:0 ; font-size:12px ; font-family:sans-serif ;
+		border-bottom:1px #999 solid ; padding:5px 10px ; line-height:17px }
+</style>
+</head>
+<body>
+<header id=nav>
+	<h1>
+		<a href="prev.html">&lt;&lt;</a> &nbsp; 
+		<a href="index.html">Taper #13 :
+		Superstitions</a> : Fall 2024 &nbsp; 
+		<a href="next.html">&gt;&gt;</a><br>
+		<a href="title_of_your_work.html">“Title”</a> by
+		<a href="about.html#authorlastname">Author</a>
+	</h1>
+</header> <!-- All poem code goes here, and must be less than or equal to 2048 bytes (not including closing </body> and </html> tags below)-->
+<div id="p"><p id="c1"></p><p id="c2"></p><p><br><br></p><p id="c3"></p><p id="c4"></p><p><br><br></p><p><br><br></p><p><br><br></p><p><br><br></p></div>
+<style>
+body { font-family: monospace; font-size: 1.5em; }
+#p { height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+#c1, #c2, #c3, #c4 { width: 100vw; text-align: center; }
+</style>
+<script>
+function xor(a, b) { let res = (a.charCodeAt() + b) % 2; return res.toString(); }
+function set_texts(c1, c2_1, c2_2, c3, c4) { document.getElementById("c1").innerHTML = "<i>" + c1 + "</i>"; document.getElementById("c2").innerHTML = "<i>" + c2_1 + "</i>" + c2_2; document.getElementById("c3").innerHTML = c3; document.getElementById("c4").innerHTML = c4; }
+window.onload = function() {
+let c1 = "\"...it confirms the fact that humiliation is the central danger of one's life\"";
+let c2_1 = "Baldwin, \"Freaks and the American Ideal of Manhood,\" published in 1985 in ";
+let c2_2 = "Playboy";
+let c3 = "When we know we're being watched and say we \"have nothing to hide\"";
+let c4 = "we confirm our fear of our humiliation over our belief in our freedom";
+set_texts(c1, c2_1, c2_2, c3, c4);
+setTimeout(() => {
+let prop = 1.0;
+window.setInterval(function() {
+let c1_mod = ""; let c2_1_mod = ""; let c2_2_mod = ""; let c3_mod = ""; let c4_mod = "";
+for (let i = 0; i < c1.length; i++) { if (Math.random() > prop) c1_mod += xor(c1[i], i); else c1_mod += c1[i]; }
+for (let i = 0; i < c2_1.length; i++) { if (Math.random() > prop) c2_1_mod += xor(c2_1[i], i); else c2_1_mod += c2_1[i]; }
+for (let i = 0; i < c2_2.length; i++) { if (Math.random() > prop) c2_2_mod += xor(c2_2[i], i); else c2_2_mod += c2_2[i]; }
+for (let i = 0; i < c3.length; i++) { if (Math.random() > prop) c3_mod += xor(c3[i], i); else c3_mod += c3[i]; }
+for (let i = 0; i < c4.length; i++) { if (Math.random() > prop) c4_mod += xor(c4[i], i); else c4_mod += c4[i]; }
+set_texts(c1_mod, c2_1_mod, c2_2_mod, c3_mod, c4_mod);
+if (prop > 0.9) prop -= 0.001; }, 500); }, 2000);
+};
+</script>
+</body>
+</html>
